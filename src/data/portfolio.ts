@@ -8,7 +8,7 @@ export const siteConfig = {
   email: "chathurikasenani@outlook.com",
   phone: "+94 713 544 477",
   location: "Sri Lanka",
-  cvPath: "/Chathurika_Senani_CV.pdf",
+  cvPath: "/ChathurikaSenani-SeniorSoftwareEngineer-CV.pdf",
   social: {
     linkedin: "https://www.linkedin.com/in/chathurikasenani/",
   },
