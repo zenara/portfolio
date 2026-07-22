@@ -1,0 +1,202 @@
+@import "tailwindcss";
+@import "@fontsource-variable/syne";
+@import "@fontsource-variable/ibm-plex-sans";
+
+:root {
+  --bg: #eef2f0;
+  --bg-deep: #e2e8e5;
+  --ink: #13201b;
+  --ink-soft: #3d4f47;
+  --muted: #5c6d65;
+  --accent: #0b6e4f;
+  --accent-soft: #d7efe6;
+  --line: #c5d0ca;
+  --surface: #f7f9f8;
+  --hero-wash: radial-gradient(
+      120% 80% at 85% 10%,
+      rgba(11, 110, 79, 0.14),
+      transparent 55%
+    ),
+    radial-gradient(
+      90% 70% at 10% 90%,
+      rgba(19, 32, 27, 0.08),
+      transparent 50%
+    ),
+    linear-gradient(165deg, #f4f7f5 0%, #e8eeeb 48%, #dfe8e3 100%);
+  --font-display: "Syne Variable", "Syne", sans-serif;
+  --font-body: "IBM Plex Sans Variable", "IBM Plex Sans", sans-serif;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c1411;
+    --bg-deep: #08100d;
+    --ink: #e8efeb;
+    --ink-soft: #c5d4cc;
+    --muted: #8fa399;
+    --accent: #4db892;
+    --accent-soft: #143528;
+    --line: #24332c;
+    --surface: #121c18;
+    --hero-wash: radial-gradient(
+        120% 80% at 85% 10%,
+        rgba(77, 184, 146, 0.16),
+        transparent 55%
+      ),
+      radial-gradient(
+        90% 70% at 8% 85%,
+        rgba(77, 184, 146, 0.06),
+        transparent 50%
+      ),
+      linear-gradient(165deg, #101a16 0%, #0c1411 45%, #08100d 100%);
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-deep: var(--bg-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+  background-image: repeating-linear-gradient(
+    -18deg,
+    transparent,
+    transparent 11px,
+    color-mix(in oklab, var(--ink) 4%, transparent) 11px,
+    color-mix(in oklab, var(--ink) 4%, transparent) 12px
+  );
+  mask-image: radial-gradient(ellipse at 50% 30%, black 20%, transparent 75%);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  /* Syne descenders (g, y, etc.) exceed the em box; keep them visible */
+  line-height: 1.2;
+  overflow: visible;
+  padding-block: 0.05em 0.12em;
+}
+
+.site-shell {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero entrance — CSS only */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-animate {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-animate-delay-1 {
+  animation-delay: 0.12s;
+}
+.hero-animate-delay-2 {
+  animation-delay: 0.24s;
+}
+.hero-animate-delay-3 {
+  animation-delay: 0.36s;
+}
+.hero-animate-delay-4 {
+  animation-delay: 0.48s;
+}
+
+/* Scroll reveal — progressive enhancement */
+@supports (animation-timeline: view()) {
+  .reveal {
+    overflow: visible;
+    animation: rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 28%;
+  }
+
+  .reveal-late {
+    overflow: visible;
+    animation: rise linear both;
+    animation-timeline: view();
+    animation-range: entry 8% cover 32%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-animate,
+  .reveal,
+  .reveal-late {
+    animation: none !important;
+  }
+}
+
+/* Nav scroll state without JS */
+@supports (animation-timeline: scroll()) {
+  .nav-shell {
+    animation: nav-solid linear both;
+    animation-timeline: scroll();
+    animation-range: 0 4rem;
+  }
+}
+
+@keyframes nav-solid {
+  to {
+    background: color-mix(in oklab, var(--bg) 88%, transparent);
+    border-bottom-color: var(--line);
+    backdrop-filter: blur(14px);
+  }
+}

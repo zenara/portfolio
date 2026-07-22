@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Astro
 
-## Getting Started
+Static portfolio for Chathurika Senani, rebuilt in Astro with almost no client JavaScript.
 
-First, run the development server:
+## Stack
+
+- [Astro](https://astro.build) (static output)
+- Tailwind CSS v4
+- System color scheme only (`prefers-color-scheme`)
+- Writing lives on [Medium](https://medium.com/@zenaronline)
+
+## Develop
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run preview
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Set `PUBLIC_SITE_URL` in production (see `.env.example`) for canonical URLs, sitemap, and robots.
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This is an **Astro** static site (not Next.js). If the Vercel project was created for the old Next app:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Project → **Settings** → **General** → **Framework Preset** → **Astro**
+2. Build Command: `npm run build`
+3. Output Directory: `dist`
+4. Add env `PUBLIC_SITE_URL` = your production URL (e.g. `https://your-domain.vercel.app`)
+
+`vercel.json` in the repo locks these settings so redeploys don’t fall back to Next.js.

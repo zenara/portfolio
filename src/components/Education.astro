@@ -1,0 +1,78 @@
+---
+import {
+  education,
+  publications,
+  achievements,
+} from "@/data/portfolio";
+---
+
+<section id="education" class="px-6 py-24 sm:py-28">
+  <div class="mx-auto max-w-6xl">
+    <div class="reveal mb-14 max-w-2xl">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+        Education & recognition
+      </p>
+      <h2 class="font-display text-3xl font-semibold text-ink sm:text-4xl">
+        Foundations and leadership
+      </h2>
+    </div>
+
+    <div class="grid gap-14 lg:grid-cols-2">
+      <div>
+        <h3 class="reveal mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+          Education
+        </h3>
+        <ul class="space-y-8">
+          {
+            education.map((item) => (
+              <li class="reveal border-t border-line pt-6">
+                <h4 class="font-display text-xl font-semibold leading-snug text-ink">
+                  {item.degree}
+                </h4>
+                <p class="mt-1 text-accent">{item.institution}</p>
+                <p class="text-sm text-muted">
+                  {item.location} · {item.period}
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+
+        <h3
+          class="reveal mt-14 mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-accent"
+        >
+          Publications
+        </h3>
+        {
+          publications.map((pub) => (
+            <div class="reveal border-t border-line pt-6">
+              <h4 class="font-medium leading-snug text-ink">{pub.title}</h4>
+              <p class="mt-2 text-sm text-muted">{pub.venue}</p>
+              <p class="mt-1 text-xs text-muted">{pub.year}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div>
+        <h3 class="reveal mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+          Achievements & leadership
+        </h3>
+        <ul class="space-y-8">
+          {
+            achievements.map((item) => (
+              <li class="reveal border-t border-line pt-6">
+                <h4 class="font-display text-xl font-semibold text-ink">
+                  {item.title}
+                </h4>
+                <p class="mt-2 text-sm leading-relaxed text-muted">
+                  {item.description}
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

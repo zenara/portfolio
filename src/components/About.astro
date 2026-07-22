@@ -1,0 +1,45 @@
+---
+import { aboutParagraphs, focusAreas } from "@/data/portfolio";
+---
+
+<section id="about" class="px-6 py-24 sm:py-28">
+  <div class="mx-auto max-w-6xl">
+    <div class="reveal mb-14 max-w-2xl">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+        About
+      </p>
+      <h2 class="font-display text-3xl font-semibold text-ink sm:text-4xl">
+        Engineering with depth and discipline
+      </h2>
+      <p class="mt-4 text-muted leading-relaxed">
+        A senior engineer focused on scalable architecture, mentorship, and
+        production-grade delivery.
+      </p>
+    </div>
+
+    <div class="grid items-start gap-12 lg:grid-cols-[0.9fr_1.3fr] lg:gap-20">
+      <aside class="reveal space-y-8 lg:sticky lg:top-28">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+          Core focus
+        </p>
+        <ul class="space-y-4 border-l border-accent/40 pl-5">
+          {
+            focusAreas.map((item) => (
+              <li class="text-sm leading-relaxed text-ink-soft">{item}</li>
+            ))
+          }
+        </ul>
+      </aside>
+
+      <div class="space-y-6">
+        {
+          aboutParagraphs.map((paragraph) => (
+            <p class="reveal-late text-lg leading-relaxed text-muted">
+              {paragraph}
+            </p>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
