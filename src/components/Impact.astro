@@ -1,0 +1,22 @@
+---
+import { stats } from "@/data/portfolio";
+---
+
+<section
+  id="impact"
+  class="border-y border-line bg-bg-deep/50 px-6 py-16 sm:py-20"
+  aria-label="Impact"
+>
+  <div class="mx-auto grid max-w-6xl grid-cols-2 gap-8 md:grid-cols-4 md:gap-6">
+    {
+      stats.map((stat) => (
+        <div class="reveal">
+          <p class="font-display text-4xl font-semibold tracking-tight text-accent tabular-nums sm:text-5xl">
+            {stat.value}
+          </p>
+          <p class="mt-2 text-sm text-muted">{stat.label}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,75 @@
+---
+import "../styles/global.css";
+import { siteConfig } from "@/data/portfolio";
+import { getSiteUrl } from "@/lib/site";
+import Nav from "@/components/Nav.astro";
+import Footer from "@/components/Footer.astro";
+
+const siteUrl = getSiteUrl();
+const title = siteConfig.title;
+const description = siteConfig.description;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content={`Senior Software Engineer, React, Next.js, React Native, TypeScript, ${siteConfig.name}`}
+    />
+    <meta name="author" content={siteConfig.name} />
+    <link rel="canonical" href={siteUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:site_name" content={siteConfig.shortName} />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta
+      name="theme-color"
+      content="#eef2f0"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0c1411"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: siteConfig.name,
+        jobTitle: siteConfig.role,
+        email: siteConfig.email,
+        telephone: siteConfig.phone,
+        url: siteUrl,
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: siteConfig.location,
+        },
+        sameAs: [siteConfig.social.linkedin, siteConfig.social.medium],
+        description: siteConfig.description,
+      })}
+    />
+  </head>
+  <body>
+    <div class="site-shell min-h-screen flex flex-col">
+      <Nav />
+      <main class="flex-1">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

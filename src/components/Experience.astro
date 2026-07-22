@@ -1,0 +1,73 @@
+---
+import { experience } from "@/data/portfolio";
+---
+
+<section id="experience" class="px-6 py-24 sm:py-28">
+  <div class="mx-auto max-w-6xl">
+    <div class="reveal mb-14 max-w-2xl">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+        Experience
+      </p>
+      <h2 class="font-display text-3xl font-semibold text-ink sm:text-4xl">
+        Delivery at scale
+      </h2>
+      <p class="mt-4 text-muted leading-relaxed">
+        Leading frontend initiatives across enterprise platforms — from
+        architecture through production releases.
+      </p>
+    </div>
+
+    <div class="relative space-y-14">
+      <div
+        class="absolute bottom-2 left-[0.4rem] top-2 hidden w-px bg-gradient-to-b from-accent via-line to-transparent md:block"
+        aria-hidden="true"
+      >
+      </div>
+
+      {
+        experience.map((job) => (
+          <article class="reveal relative md:pl-12">
+            <div
+              class="absolute left-0 top-2 hidden h-3 w-3 rounded-full border-2 border-accent bg-bg md:block"
+              aria-hidden="true"
+            />
+
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-ink">
+                  {job.role}
+                </h3>
+                <p class="mt-1 text-accent">{job.company}</p>
+                <p class="text-sm text-muted">{job.location}</p>
+              </div>
+              <div class="shrink-0 text-sm text-muted sm:text-right">
+                <p class="font-medium text-ink-soft">{job.period}</p>
+                <p class="mt-1">{job.duration}</p>
+              </div>
+            </div>
+
+            <ul class="mt-6 max-w-3xl space-y-3">
+              {job.highlights.map((highlight) => (
+                <li class="flex gap-3 text-sm leading-relaxed text-muted">
+                  <span
+                    class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent"
+                    aria-hidden="true"
+                  />
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+
+            <ul class="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-xs uppercase tracking-wide text-muted">
+              {job.tags.map((tag) => (
+                <li class="border-b border-accent/30 pb-0.5 text-accent">
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

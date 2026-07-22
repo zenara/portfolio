@@ -1,0 +1,39 @@
+---
+import { skills } from "@/data/portfolio";
+---
+
+<section id="skills" class="border-y border-line bg-bg-deep/40 px-6 py-24 sm:py-28">
+  <div class="mx-auto max-w-6xl">
+    <div class="reveal mb-14 max-w-2xl">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+        Expertise
+      </p>
+      <h2 class="font-display text-3xl font-semibold text-ink sm:text-4xl">
+        Technical depth across the stack
+      </h2>
+      <p class="mt-4 text-muted leading-relaxed">
+        From component architecture to CI/CD — senior engineering across
+        product, platform, and process.
+      </p>
+    </div>
+
+    <div class="grid gap-10 sm:grid-cols-2">
+      {
+        skills.map((group) => (
+          <div class="reveal">
+            <h3 class="mb-4 font-display text-lg font-semibold leading-snug text-ink">
+              {group.category}
+            </h3>
+            <ul class="flex flex-wrap gap-2">
+              {group.items.map((skill) => (
+                <li class="border border-line bg-surface px-3 py-1.5 text-sm text-ink-soft">
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

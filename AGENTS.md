@@ -1,5 +1,11 @@
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
+# Agent notes
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+This is an Astro static site. Prefer zero client JavaScript.
+
+- Content: `src/data/portfolio.ts`
+- Pages: `src/pages/`
+- Layout/components: `src/layouts/`, `src/components/`
+- Styles: `src/styles/global.css` (Tailwind v4 + design tokens)
+
+Do not reintroduce React, Framer Motion, or a theme toggle unless explicitly requested.
+Theme follows the OS via CSS `prefers-color-scheme`. Blog writing is linked out to Medium.

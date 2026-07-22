@@ -1,0 +1,44 @@
+---
+import { siteConfig } from "@/data/portfolio";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line bg-bg-deep/60 px-6 py-10">
+  <div
+    class="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
+  >
+    <div>
+      <p class="font-display text-base font-semibold text-ink">
+        {siteConfig.name}
+      </p>
+      <p class="mt-1 text-sm text-muted">
+        © {year} · {siteConfig.role} · {siteConfig.location}
+      </p>
+    </div>
+    <div class="flex flex-wrap gap-5 text-sm">
+      <a
+        href={siteConfig.social.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-muted transition-colors hover:text-accent"
+      >
+        LinkedIn
+      </a>
+      <a
+        href={siteConfig.social.medium}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-muted transition-colors hover:text-accent"
+      >
+        Medium
+      </a>
+      <a
+        href={`mailto:${siteConfig.email}`}
+        class="text-muted transition-colors hover:text-accent"
+      >
+        Email
+      </a>
+    </div>
+  </div>
+</footer>

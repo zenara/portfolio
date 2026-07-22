@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: "Chathurika Senani",
   shortName: "Senani",
+  lastName: "Jayathilake",
   title: "Chathurika Senani — Senior Software Engineer",
   role: "Senior Software Engineer",
   description:
@@ -11,19 +12,21 @@ export const siteConfig = {
   cvPath: "/ChathurikaSenani-SeniorSoftwareEngineer-CV.pdf",
   social: {
     linkedin: "https://www.linkedin.com/in/chathurikasenani/",
+    medium: "https://medium.com/@zenaronline",
   },
 };
 
 export const stats = [
-  { value: "7+", label: "Years Experience" },
-  { value: "14+", label: "Apps Delivered" },
-  { value: "10K+", label: "Users Served" },
-  { value: "5+", label: "Engineers Led" },
+  { value: "7+", label: "Years experience" },
+  { value: "20+", label: "Projects delivered" },
+  { value: "Live", label: "Products at scale" },
+  { value: "5+", label: "Engineers led" },
 ];
 
 export const techStack = [
   "React",
   "Next.js",
+  "Astro",
   "React Native",
   "TypeScript",
   "Node.js",
@@ -34,7 +37,7 @@ export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
-  { label: "Education", href: "#education" },
+  { label: "Writing", href: "https://medium.com/@zenaronline", external: true },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -44,6 +47,7 @@ export const skills = [
     items: [
       "React",
       "Next.js",
+      "Astro",
       "React Native",
       "TypeScript",
       "JavaScript",
@@ -99,7 +103,7 @@ export const experience = [
     period: "Aug 2021 – Present",
     duration: "4+ years",
     highlights: [
-      "Delivered 14+ web and mobile applications across fintech, healthcare, and consumer platforms using React, Next.js, React Native, and NestJS.",
+      "Delivered 20+ web and mobile projects across fintech, healthcare, and consumer platforms using React, Next.js, React Native, and NestJS.",
       "Contributed to architecture and design decisions within Nx monorepo architecture, enabling code sharing and modularization.",
       "Applied Test-Driven Development (TDD) with Jest in CI/CD workflows, improving code reliability and reducing regression defects.",
       "Designed a reusable REST API integration layer to standardize integrations across projects.",
@@ -159,8 +163,7 @@ export const education = [
 
 export const publications = [
   {
-    title:
-      "Energy Efficient VM Consolidation in Cloud Computing Environments",
+    title: "Energy Efficient VM Consolidation in Cloud Computing Environments",
     venue:
       "EdHat International Research Conference on Technology and Innovation",
     year: "2018",
@@ -175,8 +178,7 @@ export const achievements = [
   },
   {
     title: "Mentor — Girls' Coding Bootcamp",
-    description:
-      "Women Techmakers Sri Lanka & IEEE WIE.",
+    description: "Women Techmakers Sri Lanka & IEEE WIE.",
   },
   {
     title: "Volunteer Instructor",
@@ -188,4 +190,11 @@ export const aboutParagraphs = [
   "Senior Software Engineer with 7+ years of experience building scalable web and mobile applications using React, Next.js, React Native, and TypeScript.",
   "Experienced in scalable frontend and mobile architecture, modular application design, API integrations, CI/CD workflows, and test-driven development — with a strong focus on maintainable, production-grade solutions.",
   "Proven experience leading frontend initiatives, mentoring engineers, and delivering high-performance products in agile environments.",
+];
+
+export const focusAreas = [
+  "Scalable frontend & mobile architecture",
+  "Nx monorepo & modular design systems",
+  "TDD, CI/CD & engineering excellence",
+  "Cross-functional leadership & mentoring",
 ];
